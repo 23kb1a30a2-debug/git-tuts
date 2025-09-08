@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interactive ES6 & DOM Demo</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #f9f9f9;
+  }
+  button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  #output {
+    white-space: pre-wrap;
+    background: #eee;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 6px;
+    min-height: 150px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Basic DOM + ES6 Features Demo</h1>
+
+<button id="runBtn">Run Demo</button>
+
+<div id="output"></div>
+
+<script>
+  const outputEl = document.getElementById('output');
+  const runBtn = document.getElementById('runBtn');
+  const log = (...args) => {
+    outputEl.textContent += args.join(' ') + '\n';
+  };
+  const basicDOMManipulate = () => {
+    const demoDiv = document.createElement('div');
+    demoDiv.textContent = 'This div was created and added by JavaScript!';
+    demoDiv.style.color = 'green';
+    demoDiv.style.fontWeight = 'bold';
+    document.body.appendChild(demoDiv);
+    log('Basic DOM Manipulation: Added a new green div element to the page.');
+  };
+
+  const hoistingDemo = () => {
+    log('\nHoisting Demo:');
+    hoistedFunc();
+
+
+    let y = 10;
+    log('Value of y after declaration:', y);
+
+    function hoistedFunc() {
+      log('Function hoisting works: I run before declaration!');
+    }
+  };
+  const arrowFuncDemo = () => {
+    const greet = name => `Hello, ${name}!`;
+    log('\nArrow Function Demo:');
+    log(greet('User'));
+  };
+  const spreadDemo = () => {
+    const arr1 = [1, 2, 3];
+    const arr2 = [4, 5];
+    const combined = [...arr1, ...arr2];
+    log('\nSpread Operator Demo:');
+    log('Combined array:', combined);
+  };
+  const typeCoercionDemo = () => {
+    log('\nType Coercion Demo:');
+    log('5 + "5" =', 5 + '5');       
+    log('"5" - 3 =', '5' - 3);    
+    log('true + 2 =', true + 2);   
+    log('false == 0:', false == 0); 
+  };
+
+  const templateLiteralDemo = () => {
+    const user = 'Alice';
+    const age = 30;
+    log('\nTemplate Literals Demo:');
+    log(`My name is ${user} and I am ${age} years old.`);
+  };
+
+  const destructuringDemo = () => {
+    const arr = [100, 200, 300];
+    const [first, , third] = arr;
+    const obj = {name: 'Bob', city: 'Paris'};
+    const {name, city} = obj;
+    log('\nDestructuring Demo:');
+    log(`Array - first: ${first}, third: ${third}`);
+    log(`Object - name: ${name}, city: ${city}`);
+  };
+
+  runBtn.addEventListener('click', () => {
+    outputEl.textContent = ''; 
+
+    basicDOMManipulate();
+    hoistingDemo();
+    arrowFuncDemo();
+    spreadDemo();
+    typeCoercionDemo();
+    templateLiteralDemo();
+    destructuringDemo();
+  });
+</script>
+
+</body>
+</html>
