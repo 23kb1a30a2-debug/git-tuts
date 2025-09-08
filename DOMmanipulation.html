@@ -38,7 +38,7 @@
   const outputEl = document.getElementById('output');
   const runBtn = document.getElementById('runBtn');
 
-  // Helper to print output
+
   const log = (...args) => {
     outputEl.textContent += args.join(' ') + '\n';
   };
@@ -63,7 +63,6 @@
 
   const arrowFunc = (name) => `Hello, ${name}!`;
 
-  // Spread operator example
   const spreadExample = () => {
     const arr1 = [1, 2, 3];
     const arr2 = [4, 5];
@@ -97,7 +96,7 @@
   };
 
   runBtn.addEventListener('click', () => {
-    outputEl.textContent = ''; // clear previous output
+    outputEl.textContent = '';
 
     hoistingDemo();
 
@@ -120,4 +119,5 @@
 
 </body>
 </html>
+
 
