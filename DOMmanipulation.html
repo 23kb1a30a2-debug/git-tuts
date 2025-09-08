@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ES6 Features Demo</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    max-width: 600px;
+    margin: auto;
+    background: #fafafa;
+  }
+  button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  pre {
+    background: #eee;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    white-space: pre-wrap;
+  }
+</style>
+</head>
+<body>
+
+<h1>ES6 Features Demo</h1>
+
+<button id="runBtn">Run Demo</button>
+
+<pre id="output"></pre>
+
+<script>
+  const outputEl = document.getElementById('output');
+  const runBtn = document.getElementById('runBtn');
+
+  // Helper to print output
+  const log = (...args) => {
+    outputEl.textContent += args.join(' ') + '\n';
+  };
+
+  // Hoisting demo (functions are hoisted, variables with let/const are not)
+  function hoistingDemo() {
+    log('Hoisting Demo:');
+
+    // Function declaration hoisting works
+    hoistedFunction();
+
+    // Uncommenting the following line will cause an error due to temporal dead zone:
+    // log('Value of x before declaration:', x);
+
+    let x = 5;
+    log('Value of x after declaration:', x);
+
+    function hoistedFunction() {
+      log('This function runs because of hoisting!');
+    }
+  }
+
+  // Arrow function example
+  const arrowFunc = (name) => `Hello, ${name}!`;
+
+  // Spread operator example
+  const spreadExample = () => {
+    const arr1 = [1, 2, 3];
+    const arr2 = [4, 5];
+    const combined = [...arr1, ...arr2];
+    log('Spread operator combined arrays:', combined);
+  };
+
+  // Type coercion example
+  const typeCoercion = () => {
+    log('Type Coercion Examples:');
+    log('5 + "5" =', 5 + '5');       // '55' string
+    log('"5" - 3 =', '5' - 3);       // 2 number
+    log('true + 2 =', true + 2);     // 3 number
+    log('false == 0:', false == 0);  // true (loose equality)
+  };
+
+  // Template literals example
+  const templateLiterals = () => {
+    const user = 'Alice';
+    const age = 25;
+    log(`Template literals: My name is ${user} and I am ${age} years old.`);
+  };
+
+  // Array and object destructuring example
+  const destructuringExample = () => {
+    const arr = [10, 20, 30];
+    const [first, , third] = arr;
+    log(`Array destructuring: first = ${first}, third = ${third}`);
+
+    const obj = { name: 'Bob', age: 40, city: 'NYC' };
+    const { name, city } = obj;
+    log(`Object destructuring: name = ${name}, city = ${city}`);
+  };
+
+  runBtn.addEventListener('click', () => {
+    outputEl.textContent = ''; // clear previous output
+
+    hoistingDemo();
+
+    log('\nArrow Function:');
+    log(arrowFunc('ChatGPT'));
+
+    log('\nSpread Operator:');
+    spreadExample();
+
+    log('\nType Coercion:');
+    typeCoercion();
+
+    log('\nTemplate Literals:');
+    templateLiterals();
+
+    log('\nDestructuring:');
+    destructuringExample();
+  });
+</script>
+
+</body>
+</html>
