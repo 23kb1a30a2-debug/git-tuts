@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Select Elements Demo</title>
+  <style>
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="main-title">Welcome!</h1>
+  <p class="text">This is the first paragraph.</p>
+  <p class="text">This is the second paragraph.</p>
+  <div class="container">
+    <button id="myButton">Click Me</button>
+  </div>
+
+  <script>
+    const title = document.getElementById('main-title');
+    title.style.color = 'blue';
+    const paragraphs = document.getElementsByClassName('text');
+    for (let p of paragraphs) {
+      p.classList.add('highlight');
+    }
+    const divs = document.getElementsByTagName('div');
+    for (let div of divs) {
+      div.style.border = '2px solid green';
+      div.style.padding = '10px';
+    }
+    const button = document.querySelector('#myButton');
+    button.textContent = 'Button Selected!';
+    const allTextElements = document.querySelectorAll('.text');
+    allTextElements.forEach(el => {
+      el.style.fontWeight = 'bold';
+    });
+    console.log('Selected elements:', {title, paragraphs, divs, button, allTextElements});
+  </script>
+
+</body>
+</html>
