@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JavaScript Demo</title>
+  <style>
+    .btn {
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="header">JavaScript Demo</h1>
+
+  <p>This paragraph is here to demonstrate selection by tag name.</p>
+
+  <button id="btn1" class="btn">Button 1</button>
+  <button id="btn2" class="btn">Button 2</button>
+  <button id="runFunctions" class="btn">Run Functions</button>
+
+  <div id="output"></div>
+
+  <script>
+    const header = document.getElementById('header'); 
+    const buttonsByClass = document.getElementsByClassName('btn');
+    const paragraphs = document.getElementsByTagName('p');
+    const firstButton = document.querySelector('.btn'); 
+    const allButtons = document.querySelectorAll('.btn'); 
+    const outputEl = document.getElementById('output');
+    function log(msg) {
+      outputEl.textContent += msg + '\n';
+    }
+    document.getElementById('btn1').addEventListener('click', () => {
+      alert('Button 1 clicked!');
+      log('Button 1 was clicked');
+    });
+
+    document.getElementById('btn2').addEventListener('click', () => {
+      alert('Button 2 clicked!');
+      log('Button 2 was clicked');
+    });
+    function greetDeclaration(name) {
+      return `Hello, ${name} (from declaration)!`;
+    }
+    const greetExpression = function(name) {
+      return `Hello, ${name} (from expression)!`;
+    };
+    const greetArrow = (name) => `Hello, ${name} (from arrow)!`;
+
+
+    document.getElementById('runFunctions').addEventListener('click', () => {
+      outputEl.textContent = '';
+      log(greetDeclaration('Alice'));
+      log(greetExpression('Bob'));
+      log(greetArrow('Charlie'));
+    });
+  </script>
+
+</body>
+</html>
