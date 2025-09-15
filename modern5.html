@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Three Types of Functions</title>
+</head>
+<body>
+
+  <h1>Three Types of Functions Demo</h1>
+  <button id="runBtn">Run Functions</button>
+  <pre id="output"></pre>
+
+  <script>
+    const output = document.getElementById('output');
+    function greetDeclaration(name) {
+      return `Hello from function declaration, ${name}!`;
+    }
+
+    const greetExpression = function(name) {
+      return `Hello from function expression, ${name}!`;
+    };
+
+    const greetArrow = (name) => `Hello from arrow function, ${name}!`;
+
+    document.getElementById('runBtn').addEventListener('click', () => {
+      output.textContent = '';
+
+      output.textContent += greetDeclaration('Alice') + '\n';
+      output.textContent += greetExpression('Bob') + '\n';
+      output.textContent += greetArrow('Charlie') + '\n';
+    });
+  </script>
+
+</body>
+</html>
