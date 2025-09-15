@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Handle Button Click Events</title>
+</head>
+<body>
+
+  <button id="btn1">Button 1</button>
+  <button id="btn2">Button 2</button>
+  <p id="output"></p>
+
+  <script>
+    const btn1 = document.getElementById('btn1');
+    const btn2 = document.getElementById('btn2');
+    const output = document.getElementById('output');
+    btn1.addEventListener('click', () => {
+      output.textContent = 'Button 1 was clicked!';
+    });
+    btn2.addEventListener('click', () => {
+      output.textContent = 'Button 2 was clicked!';
+    });
+  </script>
+
+</body>
+</html>
