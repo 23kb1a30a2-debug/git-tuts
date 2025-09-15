@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>External JS Example</title>
+</head>
+<body>
+
+  <h1>Hello from HTML!</h1>
+  <button id="myBtn">Click Me</button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+<script>
+const button = document.getElementById('myBtn');
+
+button.addEventListener('click', () => {
+  alert('JavaScript file linked successfully!');
+  console.log('External JS working!');
+});
+</script>
+
