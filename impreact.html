@@ -1,0 +1,25 @@
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={incrementCount}>Increment</button>
+    </div>
+  );
+};
+
+const App = () => (
+  <div>
+    <h1>Counter Using useState Hook</h1>
+    <Counter />
+  </div>
+);
+
+ReactDOM.render(<App />, document.getElementById('root'));
