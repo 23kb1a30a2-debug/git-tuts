@@ -1,0 +1,15 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const App = () => {
+  const name = 'John';
+  const greeting = `Hello, ${name}! Welcome to React using string literals.`;
+
+  return (
+    <div>
+      <h1>{greeting}</h1>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
