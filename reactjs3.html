@@ -1,0 +1,27 @@
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+
+const Message = () => {
+  return <h2>Hello! This message is conditionally rendered.</h2>;
+};
+
+const App = () => {
+  const [showMessage, setShowMessage] = useState(false);
+
+  const toggleMessage = () => {
+    setShowMessage(!showMessage);
+  };
+
+  return (
+    <div>
+      <button onClick={toggleMessage}>
+        {showMessage ? 'Hide' : 'Show'} Message
+      </button>
+
+      {/* Conditional Rendering */}
+      {showMessage && <Message />}
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
