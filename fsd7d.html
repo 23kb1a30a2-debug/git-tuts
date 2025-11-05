@@ -1,0 +1,25 @@
+-- database_script.sql
+
+-- Create a new database
+CREATE DATABASE schoolDB;
+
+-- Switch to the new database
+USE schoolDB;
+
+-- Create table
+CREATE TABLE courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_name VARCHAR(100) NOT NULL,
+    credits INT
+);
+
+-- Insert data
+INSERT INTO courses (course_name, credits) VALUES
+('Database Systems', 4),
+('Operating Systems', 3),
+('Machine Learning', 4);
+
+-- Update Example
+UPDATE courses
+SET credits = 5
+WHERE course_name = 'Machine Learning';
