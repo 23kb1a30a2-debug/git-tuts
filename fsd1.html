@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Example</title>
+
+  <style>
+    /* ===== CSS Styling ===== */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #e4f6ff, #cce7ff);
+      padding: 50px;
+    }
+
+    h1 {
+      color: #222;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      transition: color 0.3s ease;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="title">Hello, JavaScript!</h1>
+  <p class="text">This is a sample paragraph.</p>
+
+  <button id="btn1">Click Me</button>
+  <button id="btn2">Change Text</button>
+  <button id="btn3">Call Functions</button>
+
+  <script>
+    // ========== Selecting Elements ==========
+    const title = document.getElementById("title");
+    const paragraph = document.querySelector(".text");
+
+    // ========== Event Listeners ==========
+    title.addEventListener("mouseover", () => {
+      title.style.color = "blue";
+    });
+
+    title.addEventListener("mouseout", () => {
+      title.style.color = "black";
+    });
+
+    // ========== Button Click Events ==========
+    document.getElementById("btn1").addEventListener("click", () => {
+      alert("Button 1 clicked!");
+    });
+
+    document.getElementById("btn2").addEventListener("click", () => {
+      paragraph.textContent = "The text has been changed after clicking the button!";
+    });
+
+    // ========== Functions in JavaScript ==========
+    // i. Function Declaration
+    function greet() {
+      alert("Hello! This is a Function Declaration.");
+    }
+
+    // ii. Function Expression
+    const showMessage = function() {
+      alert("Hi! This is a Function Expression.");
+    };
+
+    // iii. Arrow Function
+    const arrowFunction = () => {
+      alert("Hey! This is an Arrow Function.");
+    };
+
+    // Button to call all functions
+    document.getElementById("btn3").addEventListener("click", () => {
+      greet();
+      showMessage();
+      arrowFunction();
+    });
+  </script>
+</body>
+</html>
